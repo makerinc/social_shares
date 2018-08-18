@@ -4,7 +4,6 @@ module SocialShares
 
     def shares!
       response = get(URL, params: params)
-      binding.pry
       json_response = JSON.parse(response)
       sum = 0
       if json_response['engagement']
