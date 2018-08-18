@@ -15,7 +15,7 @@ module SocialShares
     end
 
     def params
-      _params = { id: checked_url, fields: 'reaction' }
+      _params = { id: checked_url, fields: 'reaction', scrape: true }
       token = ENV['FACEBOOK_ACCESS_TOKEN']
       if token
         _params.merge!(access_token: token)
