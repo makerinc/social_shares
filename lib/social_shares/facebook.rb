@@ -4,6 +4,7 @@ module SocialShares
 
     def shares!
       response = get(URL, params: params)
+      binding.pry
       json_response = JSON.parse(response)
       sum = 0
       if json_response['engagement']
@@ -15,7 +16,7 @@ module SocialShares
     end
 
     def params
-      _params = { id: checked_url, fields: 'reaction', scrape: true }
+      _params = { id: checked_url, fields: 'reaction' }
       token = ENV['FACEBOOK_ACCESS_TOKEN']
       if token
         _params.merge!(access_token: token)
