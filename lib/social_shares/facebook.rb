@@ -1,6 +1,6 @@
 module SocialShares
   class Facebook < Base
-    URL = 'https://graph.facebook.com/v3.0/'
+    URL = 'https://graph.facebook.com/v3.1/'
 
     def shares!
       response = get(URL, params: params)
@@ -15,7 +15,7 @@ module SocialShares
     end
 
     def params
-      _params = { id: checked_url, fields: 'reaction' }
+      _params = { id: checked_url, fields: 'engagement' }
       token = ENV['FACEBOOK_ACCESS_TOKEN']
       if token
         _params.merge!(access_token: token)
